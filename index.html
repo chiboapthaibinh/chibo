@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chi bộ Ấp Thái Bình - Chi bộ Kiểu mẫu</title>
+    <style>
+        /* Cấu hình chung phong cách đỏ - vàng - trắng trang trọng */
+        :root {
+            --primary-color: #cc0000; /* Đỏ cờ */
+            --secondary-color: #ffcc00; /* Vàng đồng */
+            --dark-color: #1a1a1a;
+            --light-color: #f4f4f4;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-color);
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Thanh Menu Điều Hướng */
+        header {
+            background-color: var(--primary-color);
+            border-bottom: 4px solid var(--secondary-color);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            color: #fff;
+            font-weight: bold;
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 8px 15px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        /* Banner chính trang trọng */
+        .banner {
+            background: linear-gradient(rgba(204, 0, 0, 0.85), rgba(150, 0, 0, 0.9)), url('https://picsum.photos/1920/600') no-repeat center center/cover;
+            color: #fff;
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .banner h1 {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+        }
+
+        .banner p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 25px auto;
+        }
+
+        .btn-portal {
+            background-color: var(--secondary-color);
+            color: var(--dark-color);
+            padding: 12px 25px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: 0.3s;
+            display: inline-block;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+        }
+
+        .btn-portal:hover {
+            background-color: #fff;
+            transform: translateY(-2px);
+        }
+
+        /* Bố cục nội dung */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        /* Phần nội dung chính bên trái */
+        .main-content h2 {
+            color: var(--primary-color);
+            border-left: 5px solid var(--primary-color);
+            padding-left: 10px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .card {
+            background: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+        }
+
+        /* Bản tin / Hoạt động */
+        .news-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 600px) {
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .news-item {
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            overflow: hidden;
+            background: #fff;
+        }
+
+        .news-img {
+            width: 100%;
+            height: 150px;
+            background-color: #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-weight: bold;
+        }
+
+        .news-body {
+            padding: 15px;
+        }
+
+        .news-date {
+            font-size: 0.8rem;
+            color: #888;
+            margin-bottom: 5px;
+        }
+
+        .news-title {
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+
+        /* Cột bên phải (Sidebar) */
+        .sidebar-widget {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 25px;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        .sidebar-widget h3 {
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 8px;
+        }
+
+        .quick-links {
+            list-style: none;
+        }
+
+        .quick-links li {
+            padding: 10px 0;
+            border-bottom: 1px dashed #eee;
+        }
+
+        .quick-links li a {
+            color: #333;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .quick-links li a:hover {
+            color: var(--primary-color);
+            padding-left: 5px;
+        }
+
+        /* Danh sách Ban Chi ủy */
+        .member-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .member-avatar {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-color);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        /* Chân trang */
+        footer {
+            background-color: var(--dark-color);
+            color: #bbb;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+            border-top: 4px solid var(--primary-color);
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Thanh Menu -->
+    <header>
+        <div class="logo-box">
+    <div class="logo-line1"> ĐẢNG ỦY XÃ PHƯỚC THÀNH</div>
+ <div class="logo-line2">CHI BỘ <span>ẤP THÁI BÌNH</span></div>
+            				🌟 
+<nav>
+                <ul>
+                    <li><a href="#gioi-thieu">Giới Thiệu</a></li>
+                    <li><a href="#nghi-quyet">Nghị Quyết</a></li>
+                    <li><a href="#hoat-dong">Tin Hoạt Động</a></li>
+                    <li><a href="#lien-he">Liên Hệ</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Banner chính -->
+    <section class="banner">
+        <h1>Chi bộ Ấp Thái Bình</h1>
+        <p>Chi bộ ấp Thái Bình luôn đi đầu trong công tác phát triển khoa học, đổi mới, sáng tạo và chuyển đổi số. Xây dựng Nông thôn mới kiểu mẫu.</p>
+        <a href="https://sotaydangvien.dcs.vn/" target="_blank" class="btn-portal">Truy Cập Sổ Tay Đảng Viên ➔</a>
+    </section>
+
+    <!-- Khu vực nội dung -->
+    <div class="container">
+        
+        <!-- Cột bên trái: Nội dung chính -->
+        <main class="main-content">
+            
+            <!-- Giới thiệu -->
+            <section id="gioi-thieu" class="card">
+                <h2>Giới Thiệu Chung</h2>
+                <p style="margin-top: 15px;">Chi bộ ấp Thái Bình trực thuộc Đảng ủy xã, nhiệm kỳ qua luôn giữ vững danh hiệu Chi bộ hoàn thành xuất sắc nhiệm vụ. Với quyết tâm cao, toàn thể đảng viên trong chi bộ luôn đoàn kết thống nhất, phát huy vai trò tiền phong gương mẫu trong mọi phong trào tại địa phương.</p>
+                <p style="margin-top: 10px;">Chúng tôi không ngừng đổi mới phương thức hoạt động, ứng dụng công nghệ thông tin vào sinh hoạt chi bộ để nâng cao năng lực lãnh đạo và sức chiến đấu của tổ chức cơ sở Đảng.</p>
+            </section>
+
+            <!-- Tin hoạt động -->
+            <section id="hoat-dong" class="card">
+                <h2>Bản Tin Sinh Hoạt & Hoạt Động</h2>
+                <div class="news-grid">
+                    
+                    <div class="news-item">
+                        <div class="news-img" style="background-color: #990000; color: #fff;">ẢNH HỌP CHI BỘ</div>
+                        <div class="news-body">
+                            <div class="news-date">Hôm nay, 2026</div>
+                            <div class="news-title">Sinh hoạt Chi bộ định kỳ tháng và triển khai cài đặt Sổ tay đảng viên</div>
+                            <p style="font-size: 0.9rem; color: #666;">Chi bộ đã tổ chức sinh hoạt định kỳ nghiêm túc với tỷ lệ đảng viên tham gia đạt 100%...</p>
+                        </div>
+                    </div>
+
+                    <div class="news-item">
+                        <div class="news-img" style="background-color: #b38600; color: #fff;">ẢNH DÂN VẬN KHÉO</div>
+                        <div class="news-body">
+                            <div class="news-date">Tuần trước, 2026</div>
+                            <div class="news-title">Chi bộ lãnh đạo thực hiện công trình tuyến đường hoa kiểu mẫu</div>
+                            <p style="font-size: 0.9rem; color: #666;">Vận động toàn thể nhân dân ấp đóng góp ngày công, kinh phí làm đẹp cảnh quan môi trường...</p>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+            
+        </main>
+
+        <!-- Cột bên phải: Sidebar thông tin phụ -->
+        <aside>
+            
+            <!-- Ban Chi Ủy -->
+            <div class="sidebar-widget">
+                <h3>Ban Chi Ủy Nhiệm Kỳ</h3>
+                
+                <div class="member-item">
+                    <div class="member-avatar">BT</div>
+                    <div>
+                        <strong style="color: var(--primary-color);">Đồng chí Bí thư Chi bộ</strong>
+                        <p style="font-size: 0.85rem; color: #666;">Đồng chí Bùi Hữu Tuấn</p>
+                    </div>
+                </div>
+
+                <div class="member-item">
+                    <div class="member-avatar">PBT</div>
+                    <div>
+                        <strong>Đồng chí Phó Bí thư</strong>
+                        <p style="font-size: 0.85rem; color: #666;">Trần Thị Ước</p>
+                    </div>
+                </div>
+
+                <div class="member-item">
+                    <div class="member-avatar">ỦY VIÊN</div>
+                    <div>
+                        <strong>Các đồng chí Chi ủy viên</strong>
+                        <p style="font-size: 0.85rem; color: #666;">Vũ Đình Thanh, Trịnh Hoàng Thiện,
+ Nguyễn Văn Hùng</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tài liệu & liên kết nhanh -->
+            <div id="nghi-quyet" class="sidebar-widget">
+                <h3>Tài Liệu - Nghị Quyết</h3>
+                <ul class="quick-links">
+                    <li><a href="#">📝 Nghị quyết Đại hội Chi bộ nhiệm kỳ</a></li>
+                    <li><a href="https://docs.google.com/document/d/1DJm41BOyQMHZlRtC21pzfuwdNd8RHS8A/edit?usp=drive_web&ouid=103902347818632075456&rtpof=true">📋 Quy chế làm việc của Chi bộ</a></li>
+                    <li><a href="#">📅 Kế hoạch sinh hoạt chuyên đề năm</a></li>
+                    <li><a href="#">⭐ Gương người tốt việc tốt của ấp</a></li>
+                </ul>
+            </div>
+
+        </aside>
+
+    </div>
+
+    <!-- Chân trang -->
+    <footer id="lien-he">
+        <p><strong>TRANG THÔNG TIN ĐIỆN TỬ CHI BỘ ẤP THÁI BÌNH</strong></p>
+        <p style="margin-top: 10px; font-size: 0.8rem; color: #888;">Địa chỉ: VP ấp Thái Bình | Email: chiboapthaibinh@gmail.com</p>
+        <p style="margin-top: 5px; font-size: 0.8rem; color: #888;">&copy; Bản quyền thuộc về Chi bộ ấp Thái Bình</p>
+    </footer>
+
+</body>
+</html>
