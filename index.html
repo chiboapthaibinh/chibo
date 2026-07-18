@@ -278,15 +278,11 @@
 <body>
 
     <!-- Thanh Menu -->
-    <header>
-    <div class="header-container">
-        <!-- Khối chữ bên trái -->
-        <div class="logo-box">
-            <div class="logo-line1">ĐẢNG ỦY XÃ PHƯỚC THÀNH</div>
-            <div class="logo-line2">CHI BỘ <span>ẤP THÁI BÌNH</span></div>
-        </div>
+   <header>
+    <div class="logo-box">
+        <div class="logo-line1"> ĐẢNG ỦY XÃ PHƯỚC THÀNH</div>
+        <div class="logo-line2">CHI BỘ <span>ẤP THÁI BÌNH</span></div>
         
-        <!-- Khối menu bên phải -->
         <nav class="main-nav">
             <ul>
                 <li><a href="#gioi-thieu">Giới Thiệu</a></li>
@@ -297,6 +293,42 @@
         </nav>
     </div>
 </header>
+
+<!-- DÁN ĐOẠN CSS NGAY DƯỚI THẺ HEADER NHƯ THẾ NÀY LÀ XONG -->
+<style>
+/* 1. Đổi chữ logo thành màu trắng, căn trái, thêm nền đỏ để thấy chữ trắng */
+.logo-box {
+    color: #ffffff !important;
+    text-align: left;
+    position: relative; 
+    background-color: #cd1818; 
+    padding: 15px;
+}
+.logo-box div {
+    color: #ffffff !important;
+}
+
+/* 2. Đẩy menu sang góc bên phải, căn giữa dọc */
+.main-nav {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%); 
+}
+
+/* 3. Xếp menu hàng ngang và đổi chữ sang màu trắng */
+.main-nav ul {
+    display: flex;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.main-nav ul li a {
+    color: #ffffff !important;
+    text-decoration: none;
+}
+</style>
 
     <!-- Banner chính -->
     <section class="banner">
