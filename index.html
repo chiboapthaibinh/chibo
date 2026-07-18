@@ -278,55 +278,99 @@
 <body>
 
     <!-- Thanh Menu -->
-   <header>
-    <div class="logo-box">
-        <div class="logo-line1"> ĐẢNG ỦY XÃ PHƯỚC THÀNH</div>
+   <header class="header-responsive">
+    <!-- KHỐI CHỮ BÊN TRÁI -->
+    <div class="logo-box-trai">
+        <div class="logo-line1">ĐẢNG ỦY XÃ PHƯỚC THÀNH</div>
         <div class="logo-line2">CHI BỘ <span>ẤP THÁI BÌNH</span></div>
-        
-        <nav class="main-nav">
-            <ul>
-                <li><a href="#gioi-thieu">Giới Thiệu</a></li>
-                <li><a href="#nghi-quyet">Nghị Quyết</a></li>
-                <li><a href="#hoat-dong">Tin Hoạt Động</a></li>
-                <li><a href="#lien-he">Liên Hệ</a></li>
-            </ul>
-        </nav>
     </div>
+    
+    <!-- KHỐI MENU BÊN PHẢI -->
+    <nav class="main-nav-phai">
+        <ul>
+            <li><a href="#gioi-thieu">Giới Thiệu</a></li>
+            <li><a href="#nghi-quyet">Nghị Quyết</a></li>
+            <li><a href="#hoat-dong">Tin Hoạt Động</a></li>
+            <li><a href="#lien-he">Liên Hệ</a></li>
+        </ul>
+    </nav>
 </header>
 
-<!-- DÁN ĐOẠN CSS NGAY DƯỚI THẺ HEADER NHƯ THẾ NÀY LÀ XONG -->
 <style>
-/* 1. Đổi chữ logo thành màu trắng, căn trái, thêm nền đỏ để thấy chữ trắng */
-.logo-box {
-    color: #ffffff !important;
-    text-align: left;
-    position: relative; 
-    background-color: #cd1818; 
-    padding: 15px;
+/* ==================== 1. GIAO DIỆN MÁY TÍNH (MÀN HÌNH LỚN) ==================== */
+header.header-responsive {
+    background-color: #cd1818 !important; /* Màu nền đỏ */
+    min-height: 80px !important;
+    padding: 15px 30px !important;
+    display: flex !important;
+    justify-content: space-between !important; /* Máy tính: Chữ bên trái, Menu bên phải */
+    align-items: center !important;             /* Căn giữa dọc cả 2 khối */
+    flex-wrap: wrap !important;
+    width: 100% !important;
 }
-.logo-box div {
+
+/* Định dạng khối chữ */
+header.header-responsive .logo-box-trai {
+    text-align: left !important;
+}
+
+header.header-responsive .logo-line1,
+header.header-responsive .logo-line2 {
+    color: #ffffff !important;
+    font-family: Arial, sans-serif !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 1.4 !important;
+}
+header.header-responsive .logo-line1 {
+    font-weight: bold !important;
+    font-size: 16px !important;
+}
+header.header-responsive .logo-line2 {
+    font-size: 14px !important;
+    font-weight: bold !important;
+}
+header.header-responsive .logo-line2 span {
     color: #ffffff !important;
 }
 
-/* 2. Đẩy menu sang góc bên phải, căn giữa dọc */
-.main-nav {
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    transform: translateY(-50%); 
+/* Định dạng menu hàng ngang */
+header.header-responsive .main-nav-phai ul {
+    display: flex !important;
+    gap: 20px !important;
+    list-style: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+header.header-responsive .main-nav-phai ul li a {
+    color: #ffffff !important;
+    text-decoration: none !important;
+    font-weight: bold !important;
+    font-size: 15px !important;
 }
 
-/* 3. Xếp menu hàng ngang và đổi chữ sang màu trắng */
-.main-nav ul {
-    display: flex;
-    gap: 20px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-.main-nav ul li a {
-    color: #ffffff !important;
-    text-decoration: none;
+/* ==================== 2. GIAO DIỆN ĐIỆN THOẠI (MÀN HÌNH NHỎ) ==================== */
+@media (max-width: 768px) {
+    header.header-responsive {
+        flex-direction: column !important; /* Ép menu nhảy xuống hàng dưới khối chữ */
+        gap: 15px !important;              /* Tạo khoảng cách an toàn giữa chữ và menu */
+        text-align: center !important;     /* Căn giữa tất cả cho đẹp trên điện thoại */
+        padding: 15px !important;
+    }
+
+    header.header-responsive .logo-box-trai {
+        text-align: center !important;     /* Chữ Đảng ủy căn giữa màn hình điện thoại */
+    }
+
+    header.header-responsive .main-nav-phai ul {
+        justify-content: center !important;/* Các nút menu căn đều ra giữa */
+        flex-wrap: wrap !important;        /* Nếu màn hình quá nhỏ, các nút tự xuống dòng tiếp */
+        gap: 12px !important;              /* Thu nhỏ khoảng cách các nút một chút */
+    }
+    
+    header.header-responsive .main-nav-phai ul li a {
+        font-size: 14px !important;        /* Thu nhỏ chữ menu một chút để vừa màn hình dọc */
+    }
 }
 </style>
 
