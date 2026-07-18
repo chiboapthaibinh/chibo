@@ -406,8 +406,15 @@ header.header-responsive .main-nav-phai ul li a {
         <div class="news-img" style="background-color: #990000; color: #fff;">ẢNH HỌP CHI BỘ</div>
     </a>
     <div class="news-body">
-        <div class="news-date">Hôm nay, 2026</div>
-        
+        <!-- Đổi thẻ div cũ của bạn thành đoạn này nhé -->
+<div class="news-date" id="current-date">Hôm nay, 2026</div>
+
+<!-- Đoạn mã nhỏ này giúp tự động cập nhật ngày tháng thực tế bằng Tiếng Việt -->
+<script>
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    const today = new Date().toLocaleDateString('vi-VN', options);
+    document.getElementById('current-date').innerText = today;
+</script>        
         <!-- TIÊU ĐỀ BÀI 1: Thay 'bai-viet-chi-bo.html' bằng đường dẫn link của bạn -->
         <div class="news-title">
             <a href="bai-viet-chi-bo.html" style="text-decoration: none; color: inherit; font-weight: bold;">
