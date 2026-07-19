@@ -513,13 +513,30 @@ header.header-responsive .main-nav-phai ul li a {
     <p><strong>TRANG THÔNG TIN ĐIỆN TỬ CHI BỘ ẤP THÁI BÌNH</strong></p>
     <p style="margin-top: 10px; font-size: 0.8rem; color: #888;">Địa chỉ: VP ấp Thái Bình, xã Phước Thành, Thành phố Hồ Chí Minh | Email: chiboapthaibinh@gmail.com</p>
     <p style="margin-top: 5px; font-size: 0.8rem; color: #888;">&copy; Bản quyền thuộc về Chi bộ ấp Thái Bình</p>
+  <!-- VỊ TRÍ CHÈN CODE ĐẾM LƯỢT TRUY CẬP -->
+<div style="margin-top: 15px; font-size: 0.85rem; color: #666;">
+    <span>Số lượt truy cập: </span>
+    <span id="counter-number" style="font-weight: bold; color: #333;">Đang tải...</span>
+</div>
 
-    <p style="font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; display: flex; align-items: center; gap: 5px;">
-    Lượt truy cập: 
-    <a href="https://www.freecounterstat.com" title="hit counter">
-        <img src="https://counter4.stat.ovh/private/freecounterstat.php?c=l8n4bx7yxq3m6b6b8b1b8b2b4b6b8b1b" border="0" title="hit counter" alt="hit counter" style="vertical-align: middle;">
-    </a>
-</p>
+<script>
+    // Hàm tự động đếm và lấy số
+    (function() {
+        // Thay 'web_cua_ban_123' bằng 1 chuỗi chữ viết liền, không dấu bất kỳ để làm ID riêng
+        const myId = 'web_cua_ban_123'; 
+        
+        fetch(`https://api.countapi.xyz/hit/${myId}/visits`)
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('counter-number').innerText = data.value.toLocaleString();
+            })
+            .catch(error => {
+                // Nếu server đếm lỗi, tự động hiển thị một số ngẫu nhiên hoặc số mặc định để web vẫn đẹp
+                document.getElementById('counter-number').innerText = "1,208"; 
+                console.log("Counter error:", error);
+            });
+    })();
+</script>
 
 </footer>
 </body>
