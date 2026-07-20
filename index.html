@@ -499,8 +499,8 @@ header.header-responsive .main-nav-phai ul li a {
                     <li><a href="https://docs.google.com/document/d/1DJm41BOyQMHZlRtC21pzfuwdNd8RHS8A/edit?usp=drive_web&ouid=103902347818632075456&rtpof=true">📋 Quy chế làm việc của Chi bộ</a></li>
                     <li><a href="#">📅 Kế hoạch sinh hoạt chuyên đề năm</a></li>
 		<li><a href="#">📅 Kế hoạch sinh hoạt thường kỳ</a></li>
-                    <li><a href="#">⭐ Gương người tốt việc tốt của ấp</a></li>
-                </ul>
+		<li><a href="#">📅 Kế hoạch giám sát Chi bộ</a></l
+                     </ul>
             </div>
 
         </aside>
@@ -519,24 +519,28 @@ header.header-responsive .main-nav-phai ul li a {
 </div>
 
 <script>
-    // Hàm tự động đếm và lấy số
     (function() {
-        // Thay 'web_cua_ban_123' bằng 1 chuỗi chữ viết liền, không dấu bất kỳ để làm ID riêng
-        const myId = 'web_cua_ban_123'; 
-        
-        fetch(`https://api.countapi.xyz/hit/${myId}/visits`)
+        // Thay 'trang-web-cua-ban' thành tên/ID riêng bất kỳ của bạn (chữ không dấu, viết liền)
+        const myNamespace = 'my-website-namespace';
+        const myKey = 'visit-counter';
+
+        // Tự động tăng lượt truy cập mỗi khi tải trang (up)
+        fetch(`https://api.counterapi.dev/v1/${myNamespace}/${myKey}/up`)
             .then(response => response.json())
             .then(data => {
-                document.getElementById('counter-number').innerText = data.value.toLocaleString();
+                const countElement = document.getElementById('counter-number');
+                if (countElement && data.count !== undefined) {
+                    countElement.innerText = data.count.toLocaleString();
+                }
             })
             .catch(error => {
-                // Nếu server đếm lỗi, tự động hiển thị một số ngẫu nhiên hoặc số mặc định để web vẫn đẹp
-                document.getElementById('counter-number').innerText = "1,208"; 
                 console.log("Counter error:", error);
+                const countElement = document.getElementById('counter-number');
+                if (countElement) {
+                    countElement.innerText = "1,208"; // Số mặc định nếu lỗi
+                }
             });
     })();
-</script>
-
-</footer>
+</script></footer>
 </body>
 </html>
