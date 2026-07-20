@@ -375,12 +375,35 @@ header.header-responsive .main-nav-phai ul li a {
 </style>
 
     <!-- Banner chính -->
-    <section class="banner">
-        <h1>Chi bộ Ấp Thái Bình</h1>
-        <p>Chi bộ ấp Thái Bình luôn đi đầu trong công tác phát triển khoa học, đổi mới, sáng tạo và chuyển đổi số. Xây dựng Nông thôn mới kiểu mẫu.</p>
-        <a href="https://sotaydangvien.dcs.vn/" target="_blank" class="btn-portal">Truy Cập Sổ Tay Đảng Viên ➔</a>
-    </section>
+   <section class="banner" style="overflow: hidden; padding: 20px 0; text-align: center;">
+    
+    <!-- Tiêu đề <h1> đã được thêm lại, đứng yên -->
+    <h1 style="margin-bottom: 10px; opacity: 1; transform: none;">Chi bộ Ấp Thái Bình</h1>
+    
+    <!-- Đoạn văn chạy nhẹ vào rồi DỪNG HẲN -->
+    <p style="animation: slideFromRightAndStop 3s ease-out forwards; line-height: 1.6; margin-bottom: 20px; opacity: 0; white-space: normal;">
+        Chi bộ ấp Thái Bình luôn đi đầu trong công tác phát triển khoa học, đổi mới, sáng tạo và chuyển đổi số. Xây dựng Nông thôn mới kiểu mẫu, xây dựng làng thông minh
+    </p>
+    
+    <!-- Nút bấm đứng yên -->
+    <a href="https://sotaydangvien.dcs.vn/" target="_blank" class="btn-portal" style="display: inline-block;">
+        Truy Cập Sổ Tay Đảng Viên ➔
+    </a>
+</section>
 
+<!-- Đoạn CSS hiệu ứng mới đã được sửa lỗi -->
+<style>
+@keyframes slideFromRightAndStop {
+    0% {
+        transform: translateX(50px); /* Bắt đầu trượt nhẹ từ cách vị trí gốc 50px về bên phải */
+        opacity: 0;                   /* Mờ ảo lúc xuất hiện */
+    }
+    100% {
+        transform: translateX(0);    /* Dừng lại đúng vị trí gốc chuẩn */
+        opacity: 1;                   /* Hiện rõ hoàn toàn */
+    }
+}
+</style>
     <!-- Khu vực nội dung -->
     <div class="container">
         
